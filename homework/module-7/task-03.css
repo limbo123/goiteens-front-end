@@ -1,0 +1,13 @@
+#gallery{
+    display: flex;
+}
+
+.li_image{
+    display: flex;
+    margin-right: 30px;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
