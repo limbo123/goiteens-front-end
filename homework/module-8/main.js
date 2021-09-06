@@ -116,8 +116,7 @@ const lightboxOverlay = document.querySelector(".lightbox__overlay");
 
 // Modal function
 
-const lightboxOpen = galleryImage.forEach((galleryItem) => {
-  galleryItem.addEventListener("click", function (event) {
+  galleryRef.addEventListener("click", function (event) {
 
     lightbox.classList.add("is-open");
 
@@ -157,4 +156,4 @@ const lightboxOpen = galleryImage.forEach((galleryItem) => {
       }
     });
   });
-});
+
