@@ -14,7 +14,7 @@ const inventory = {
   
   const invokeInventoryAction = function (itemName, action) {
     console.log(`Invoking action on ${itemName}`);
-    newFunc = action.bind(inventory);
+    const newFunc = action.bind(inventory);
     return newFunc(itemName)
   };
   
