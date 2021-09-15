@@ -83,6 +83,7 @@ const users = [{
     age: 39,
   },
 ];
+console.log("Task #6");
 
 const getUsersWithAge = (users, min, max) => {
     return users.filter(user  => user.age <= max && user.age >= min);

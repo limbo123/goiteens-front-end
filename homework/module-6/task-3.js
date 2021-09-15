@@ -83,6 +83,7 @@ const users = [{
     age: 39,
   },
 ];
+console.log("Task #3");
 
 const getUsersWithGender  = (users, gender) => {
     return users.filter(user => user.gender === gender);

@@ -83,7 +83,7 @@ const users = [{
   age: 39
 }
 ];
-
+console.log("Task #1");
 const usersNames = users.map(function(users) {
   return users.name;
 })

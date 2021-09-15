@@ -83,6 +83,7 @@ const users = [{
     age: 39
   }
 ];
+console.log("Task #7");
 
 
 const calculateTotalBalance = users => {

@@ -83,6 +83,7 @@ const users = [{
     age: 39
   }
 ];
+console.log("Task #8");
 
 const getUsersWithFriend = (users, friendName) => {
   const usersObj = users.filter(user => user.friends.includes(friendName));

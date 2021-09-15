@@ -83,6 +83,7 @@ const users = [{
     age: 39
   }
 ];
+console.log("Task #9");
 
 const getNamesSortedByFriendsCount = users => {
     const sortedObj = users.sort((a, b) => {

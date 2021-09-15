@@ -83,6 +83,7 @@ const users = [{
     age: 39,
   },
 ];
+console.log("Task #5");
  
 const getUserWithEmail = (users, email) => {
     return users.find(user => user.email === email);
