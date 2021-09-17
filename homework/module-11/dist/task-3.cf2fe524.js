@@ -117,34 +117,78 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"task-1/main.js":[function(require,module,exports) {
-var refs = {
-  body: document.querySelector("body"),
-  startBtn: document.querySelector('[data-action="start"]'),
-  stopBtn: document.querySelector('[data-action="stop"]')
-};
-var colors = ['#FFFFFF', '#2196F3', '#4CAF50', '#FF9800', '#009688', '#795548'];
+})({"task-2/task-2-3/task-3.js":[function(require,module,exports) {
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var randomIntegerFromInterval = function randomIntegerFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-var startBtnIsUnlocked = true;
-var colorChanging = null;
-var startChanging = refs.startBtn.addEventListener("click", function () {
-  if (startBtnIsUnlocked) {
-    startBtnIsUnlocked = false;
-    colorChanging = setInterval(function () {
-      refs.body.style.background = colors[randomIntegerFromInterval(0, colors.length - 1)];
-    }, 1000);
-  }
+var makeTransaction = function makeTransaction(transaction) {
+  var delay = randomIntegerFromInterval(200, 500);
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      var canProcess = Math.random() > 0.3;
 
-  ;
-});
-refs.stopBtn.addEventListener("click", function () {
-  clearInterval(colorChanging);
-  startBtnIsUnlocked = true;
-});
+      if (canProcess) {
+        resolve([transaction.id, delay]);
+      } else {
+        reject(transaction.id);
+      }
+    }, delay);
+  });
+};
+
+var logSuccess = function logSuccess(_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      id = _ref2[0],
+      time = _ref2[1];
+
+  console.log("Transaction ".concat(id, " processed in ").concat(time, "ms"));
+};
+
+var logError = function logError(id) {
+  console.warn("Error processing transaction ".concat(id, ". Please try again later."));
+};
+/*
+ * Працює так
+ */
+//   makeTransaction({ id: 70, amount: 150 }, logSuccess, logError);
+//   makeTransaction({ id: 71, amount: 230 }, logSuccess, logError);
+//   makeTransaction({ id: 72, amount: 75 }, logSuccess, logError);
+//   makeTransaction({ id: 73, amount: 100 }, logSuccess, logError);
+
+/*
+ * Повинно працювати так
+ */
+
+
+makeTransaction({
+  id: 70,
+  amount: 150
+}).then(logSuccess).catch(logError);
+makeTransaction({
+  id: 71,
+  amount: 230
+}).then(logSuccess).catch(logError);
+makeTransaction({
+  id: 72,
+  amount: 75
+}).then(logSuccess).catch(logError);
+makeTransaction({
+  id: 73,
+  amount: 100
+}).then(logSuccess).catch(logError);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -349,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-1/main.js"], null)
-//# sourceMappingURL=/main.94ad315d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-2/task-2-3/task-3.js"], null)
+//# sourceMappingURL=/task-3.cf2fe524.js.map

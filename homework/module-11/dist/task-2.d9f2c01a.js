@@ -117,34 +117,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"task-1/main.js":[function(require,module,exports) {
-var refs = {
-  body: document.querySelector("body"),
-  startBtn: document.querySelector('[data-action="start"]'),
-  stopBtn: document.querySelector('[data-action="stop"]')
-};
-var colors = ['#FFFFFF', '#2196F3', '#4CAF50', '#FF9800', '#009688', '#795548'];
+})({"task-2/task-2.js":[function(require,module,exports) {
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-var randomIntegerFromInterval = function randomIntegerFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-var startBtnIsUnlocked = true;
-var colorChanging = null;
-var startChanging = refs.startBtn.addEventListener("click", function () {
-  if (startBtnIsUnlocked) {
-    startBtnIsUnlocked = false;
-    colorChanging = setInterval(function () {
-      refs.body.style.background = colors[randomIntegerFromInterval(0, colors.length - 1)];
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var users = [{
+  name: 'Mango',
+  active: true
+}, {
+  name: 'Poly',
+  active: false
+}, {
+  name: 'Ajax',
+  active: true
+}, {
+  name: 'Lux',
+  active: false
+}];
+
+var toggleUserState = function toggleUserState(allUsers, userName) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var updatedUsers = allUsers.map(function (user) {
+        return user.name === userName ? _objectSpread(_objectSpread({}, user), {}, {
+          active: !user.active
+        }) : user;
+      });
+      resolve(updatedUsers);
     }, 1000);
-  }
+  });
+};
 
-  ;
-});
-refs.stopBtn.addEventListener("click", function () {
-  clearInterval(colorChanging);
-  startBtnIsUnlocked = true;
-});
+var logger = function logger(updatedUsers) {
+  return console.table(updatedUsers);
+};
+/*
+ * Повинно працювати так
+ */
+
+
+toggleUserState(users, 'Mango').then(logger);
+toggleUserState(users, 'Lux').then(logger);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -349,5 +365,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-1/main.js"], null)
-//# sourceMappingURL=/main.94ad315d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-2/task-2.js"], null)
+//# sourceMappingURL=/task-2.d9f2c01a.js.map

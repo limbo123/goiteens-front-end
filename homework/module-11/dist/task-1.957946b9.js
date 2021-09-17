@@ -117,34 +117,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"task-1/main.js":[function(require,module,exports) {
-var refs = {
-  body: document.querySelector("body"),
-  startBtn: document.querySelector('[data-action="start"]'),
-  stopBtn: document.querySelector('[data-action="stop"]')
+})({"task-2/task-1.js":[function(require,module,exports) {
+console.log("Task 1");
+
+var delay = function delay(ms) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(ms);
+    }, ms);
+  });
 };
-var colors = ['#FFFFFF', '#2196F3', '#4CAF50', '#FF9800', '#009688', '#795548'];
 
-var randomIntegerFromInterval = function randomIntegerFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+var logger = function logger(time) {
+  return console.log("Resolved after ".concat(time));
+}; // Виклич функції для перевірки
 
-var startBtnIsUnlocked = true;
-var colorChanging = null;
-var startChanging = refs.startBtn.addEventListener("click", function () {
-  if (startBtnIsUnlocked) {
-    startBtnIsUnlocked = false;
-    colorChanging = setInterval(function () {
-      refs.body.style.background = colors[randomIntegerFromInterval(0, colors.length - 1)];
-    }, 1000);
-  }
 
-  ;
-});
-refs.stopBtn.addEventListener("click", function () {
-  clearInterval(colorChanging);
-  startBtnIsUnlocked = true;
-});
+delay(2000).then(logger); // Resolved after 2000ms
+
+delay(1000).then(logger); // Resolved after 1000ms
+
+delay(1500).then(logger); // Resolved after 1500ms
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -349,5 +342,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-1/main.js"], null)
-//# sourceMappingURL=/main.94ad315d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","task-2/task-1.js"], null)
+//# sourceMappingURL=/task-1.957946b9.js.map
