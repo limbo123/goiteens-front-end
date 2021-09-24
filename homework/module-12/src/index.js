@@ -16,7 +16,7 @@ searchInput.addEventListener(
       fetchCountries(event.target.value).then(fullRes => {
         if (Array.isArray(fullRes)) {
           if (fullRes.length > 1 && fullRes.length <= 10) {
-            console.log('hello');
+            
             let markup = '';
             fullRes.forEach(country => {
               markup += `<li>${country.name}</li>`;
@@ -30,7 +30,7 @@ searchInput.addEventListener(
             });
             return;
           } else if (fullRes.length === 1) {
-            console.log(fullRes[0]);
+            
             countryList.insertAdjacentHTML('beforeend', countryMarkup(fullRes[0]));
             return;
           }
