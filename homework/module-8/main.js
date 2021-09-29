@@ -113,22 +113,22 @@ const closeBtn = document.querySelector(".lightbox__button");
 const lightboxOverlay = document.querySelector(".lightbox__overlay");
 
 // Modal function
+  const previewPhotosArray = galleryArray.map(
+    (arrayItem) => arrayItem.preview
+  );
+
+  const originalPhotosArray = galleryArray.map(
+    (arrayItem) => arrayItem.original
+  );
+
+  const descriptionArray = galleryArray.map(
+    (arrayItem) => arrayItem.description
+  );
 
   galleryRef.addEventListener("click", function (event) {
 
     lightbox.classList.add("is-open");
 
-    const previewPhotosArray = galleryArray.map(
-      (arrayItem) => arrayItem.preview
-    );
-
-    const originalPhotosArray = galleryArray.map(
-      (arrayItem) => arrayItem.original
-    );
-
-    const descriptionArray = galleryArray.map(
-      (arrayItem) => arrayItem.description
-    );
     
     if (previewPhotosArray.includes(event.target.src)) {
       lightboxImage.src =
