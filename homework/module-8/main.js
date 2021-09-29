@@ -72,10 +72,9 @@ const lightboxImage = document.querySelector(".lightbox__image");
 
 // Creation of gallery function
 
-const galleryItemCreate = function (array, item) {
-  const previewPhotosArray = array.map((arrayItem) => arrayItem.preview);
-  const descriptionArray = array.map((arrayItem) => arrayItem.description);
-  for (const value of previewPhotosArray) {
+const galleryItemCreate = function (array, gallery) {
+  
+  array.forEach(photo => {
     const galleryItem = document.createElement("li");
 
     galleryItem.classList.add("gallery__item");
@@ -88,21 +87,20 @@ const galleryItemCreate = function (array, item) {
 
     galleryItemImg.classList.add("gallery__image");
 
-    galleryItemImg.src = value;
+    galleryItemImg.src = photo.preview;
 
-    galleryItemImg.dataset.source = value;
+    galleryItemImg.dataset.source = photo.preview;
 
-    if (previewPhotosArray.includes(galleryItemImg.src)) {
-      galleryItemImg.alt =
-        descriptionArray[previewPhotosArray.indexOf(galleryItemImg.src)];
-    }
+    
+      galleryItemImg.alt = photo.description;
+  
 
     galleryItemLink.appendChild(galleryItemImg);
 
     galleryItem.appendChild(galleryItemLink);
 
-    item.appendChild(galleryItem);
-  }
+    gallery.appendChild(galleryItem);
+  }) 
 };
 
 galleryItemCreate(galleryArray, galleryRef);
