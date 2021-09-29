@@ -2370,6 +2370,10 @@ checkbox.addEventListener("change", function () {
   localStorage.setItem("Theme", JSON.stringify(body.classList.value));
 });
 ul_menu.insertAdjacentHTML("beforeend", (0, _index.default)(_menu.default));
+
+if (body.classList.value === Theme.DARK) {
+  checkbox.checked = true;
+}
 },{"./menu.json":"menu.json","./templates/index.hbs":"templates/index.hbs"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -2398,7 +2402,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64855" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54344" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -12,6 +12,8 @@ const Theme = {
   DARK: "dark-theme",
 };
 
+
+
 const savedValue = localStorage.getItem("Theme");
 
 if (savedValue) {
@@ -26,3 +28,7 @@ checkbox.addEventListener("change", () => {
 });
 
 ul_menu.insertAdjacentHTML("beforeend", menuItem(menu));
+
+if(body.classList.value === Theme.DARK){
+  checkbox.checked = true;
+}
