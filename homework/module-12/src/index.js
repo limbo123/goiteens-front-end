@@ -1,5 +1,5 @@
 import './sass/main.scss';
-var debounce = require('lodash.debounce');
+let debounce = require('lodash.debounce');
 import { alert, defaultModules } from '../node_modules/@pnotify/core/dist/PNotify';
 import '@pnotify/core/dist/BrightTheme.css';
 import countryMarkup from './country.hbs';
