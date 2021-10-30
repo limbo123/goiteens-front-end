@@ -87,9 +87,7 @@ console.log("Task #7");
 
 
 const calculateTotalBalance = users => {
-    // const userBalances = users.map(users =>{
-    //     return users.balance
-    // });
+    
     const reducedUsersBalances = users.reduce((acc, curr) => {
         acc += curr.balance;
         return acc;
